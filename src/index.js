@@ -1,6 +1,6 @@
 var koa = require('koa');
 var router = require('koa-router')();
-var koaBody = require('koa-body')();
+var koaBody = require('koa-body')({multipart: true});
 var zoho = require('zoho');
 var env = require('node-env-file');
 
@@ -30,9 +30,10 @@ router.get('/', function *(next) {
 
 // POST new entry
 router.post('/', koaBody, function *(next) {
-  var section = this.request.body._section || 'Contacts';
+  const data = this.request.body.fields || this.request.body
+  var section = data._section || 'Contacts';
   yield new Promise((resolve, reject) => {
-    crm.createRecord(section, this.request.body, (err, res) => {
+    crm.createRecord(section, data, (err, res) => {
       err ? reject(err) : resolve(res)
     });
   }).then(() => {
