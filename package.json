@@ -1,0 +1,26 @@
+{
+  "name": "zoho-connector",
+  "version": "0.0.1",
+  "description": "A simple API/connector to Zoho CRM",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/glue-gl/zoho-connector.git"
+  },
+  "author": "Glue.gl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/glue-gl/zoho-connector/issues"
+  },
+  "homepage": "https://gitlab.com/glue-gl/zoho-connector#README",
+  "dependencies": {
+    "koa": "^1.2.4",
+    "koa-body": "^1.5.0",
+    "koa-router": "^5.4.0",
+    "node-env-file": "^0.1.8",
+    "zoho": "^0.5.0"
+  }
+}
