@@ -1,6 +1,7 @@
 var koa = require('koa');
 var router = require('koa-router')();
 var koaBody = require('koa-body')({multipart: true});
+var koaCors = require('kcors');
 var zoho = require('zoho');
 var env = require('node-env-file');
 
@@ -17,6 +18,7 @@ if (!apiKey) {
 
 // -- Server instances --
 var app = koa();
+app.use(koaCors());
 var crm = new zoho.CRM({authtoken: apiKey});
 
 
